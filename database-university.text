@@ -1,7 +1,86 @@
-- Dipartimento
-- Corso di laurea
-- Corso
-- Insegnante
-- Appello
-- Studente
-- Esito 
+- DIPARTIMENTO
+
+  Facoltà: VARCHAR(32) ; NOT NULL
+  Descrizione: TEXT ; NOT NULL
+  Riconoscimenti: VARCHAR(128); NOT NULL
+  Rating_digitale: TINYINT; NULL
+  Requisiti: TEXT; NOT NULL
+  Sede_fisica: VARCHAR(128); NOT NULL
+  Contatti: VARCHAR(32); NOT NULL
+
+- CORSO DI LAUREA
+
+  Modalità_laurea: TEXT; NOT NULL
+  Requisiti_didattici: TEXT; NOT NULL
+  Requisiti_temporali: VARCHAR(64); NOT NULL
+  Punteggio_massimo: TINYINT; NOT NULL
+  Punteggio_minimo: TINYINT; NOT NULL
+  Sede fisica: VARCHAR(128); NOT NULL
+  Materiale_didattico_richiesto: TEXT; NOT NULL
+  Minimo_ore_richieste: TINYINT; NOT NULL
+  Media_punteggio_richiesta: TINYINT; NOT NULL
+
+- CORSO
+
+  Materia: VARCHAR(12); NOT NULL
+  Modalità_corso: TEXT; NOT NULL
+  Docente: VARCHAR(32); NOT NULL
+  Anni_per_conseguimento_laurea: TINYINT; NOT NULL
+  Numero_ore_obbligatorie:INT; NOT NULL
+  Numero_ore_totali: INT; NOT NULL
+  Argomenti_trattati: TEXT; NOT NULL
+  Durata_temporale: VARCHAR(12); NOT NULL (Mesi)
+  Sede: VARCHAR(255); NOT NULL
+  Contatti: VARCHAR(32); NOT NULL
+
+- INSEGNANTE
+
+  id_insegnante: INT; NOT NULL; (PRIMARY_KEY)
+  Nome: VARCHAR (32); NOT NULL
+  Cognome: VARCHAR (32); NOT NULL
+  Sesso: VARCHAR (1); NOT NULL; (F o M)
+  Materia: VARCHAR(32); NOT NULL
+  Modalità_insegnamento: VARCHAR (128) ; NULL
+  Indirizzo_residenza: VARCHAR (255) ; NOT NULL
+  Turni_lezioni: VARCHAR (128) ; NOT NULL
+  Corsi_gestiti: VARCHAR (128) ; NOT NULL
+
+- APPELLO
+
+  id_studente: INT; NOT NULL; (PRIMARY_KEY)
+  Nome: VARCHAR (32); NOT NULL
+  Cognome: VARCHAR (32); NOT NULL
+  Sesso: VARCHAR (1); NOT NULL;  (F o M)
+  data_appello: DATE ; NOT NULL
+  materia_appello: VARCHAR(64) ; NOT NULL
+  voto_minimo: TINYINT ; NOT NULL
+  voto_massimo: TINYINT ; NOT NULL
+  tipologia_appello: VARCHAR(128) ; NOT NULL
+
+- STUDENTE
+  id_studente: INT; NOT NULL; (PRIMARY_KEY)
+  Nome: VARCHAR (32); NOT NULL
+  Cognome: VARCHAR (32); NOT NULL
+  Sesso: VARCHAR (1); NOT NULL;  (F o M)
+  Data_nascita: DATE; NOT NULL
+  Luogo_nascita: VARCHAR(32); NOT NULL
+  indirizzo_residenza: VARCHAR (128); NOT NULL
+  Contatti: VARCHAR(32); NOT NULL
+  Carta_identità: VARCHAR(20); NOT NULL
+  Tessera_sanitaria: VARCHAR (20); NOT NULL
+  Corsi_sottoscritti: VARCHAR(128); NOT NULL
+  Docente_assegnato: VARCHAR(32); NOT NULL
+
+- ESITO
+
+  id_studente: INT; NOT NULL; (PRIMARY_KEY)
+  Nome: VARCHAR (32); NOT NULL
+  Cognome: VARCHAR (32); NOT NULL
+  Sesso: VARCHAR (1); NOT NULL;  (F o M)
+  totale_esami_sostenuti: TINYINT; NOT NULL
+  totale_esami_non_sostenuti: TINYINT; NOT NULL
+  totale_presenza_ore_corso: SMALL; NOT NULL
+  totale_assenze: TINYINT; NOT NULL
+  media_voto: TINYINT; NOT NULL
+  laurea_conseguita: VARCHAR(32); NOT NULL
+  laurea_conseguita_data: DATE ; NOT NULL
